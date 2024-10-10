@@ -40,7 +40,7 @@ def index():
         age = calculate_age(dob)
         zodiac = get_zodiac_sign(dob)
         days_to_bday = days_to_birthday(dob)
-        message = f"Greetings, {name}! You're {age} years old with the zodiac sign {zodiac}. Your next birthday is in {days_to_bday} days."
+        message = f"Greetings, {name}! Your age is {age} with the zodiac sign {zodiac}. Your next birthday is in {days_to_bday} days."
         return render_template('result.html', message=message)
     return render_template('index.html')
 if __name__ == '__main__':
