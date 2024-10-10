@@ -1,9 +1,17 @@
 from flask import Flask, render_template, request
-from datetime import datetime
+from datetime import datetime, date
 import random
 
 def get_lucky_number():
     return random.randint(1, 100)
+
+def days_to_birthday(dob):
+    today = date.today()
+    dob = datetime.strptime(dob, "%Y-%m-%d").date()
+    next_birthday = date(today.year, dob.month, dob.day)
+    if next_birthday < today:
+        next_birthday = date(today.year + 1, dob.month, dob.day)
+    return (next_birthday - today).days
 
 def calculate_age(dob):
     today = datetime.today()
